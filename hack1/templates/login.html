@@ -1,0 +1,54 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Medigo Red, free responsive template</title>
+    <meta name="keywords" content="">
+	<meta name="description" content="">
+    <meta name="author" content="templatemo">
+    <!-- 
+	Medigo Template
+	http://www.templatemo.com/preview/templatemo_460_medigo
+    -->
+
+	<!-- Google Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700itali" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,900,800,700,500,200,100,600" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/misc.css' %}">
+	<link rel="stylesheet" href="{% static 'css/red-scheme.css' %}">
+	
+	<!-- JavaScripts -->
+	<script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+	<script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
+
+	<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+	<title>Login</title>
+</head>
+<body>
+	<div class="container" style="margin-top: 100px;">
+		<div class="jumbotron">
+			<h1>LOGIN</h1>
+{% if val %}
+<p>Account has been successfully created</p>
+{% endif %}
+{% if not accepted %}
+<p>Please enter correct username and password</p>
+{% endif %}
+{% if not logged_in %}
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Login</button>
+</form>
+{% else %}
+<p>User already logged in</p>
+{% endif %}
+</div>
+</div>
+</body>
+</html>
